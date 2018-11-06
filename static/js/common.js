@@ -171,7 +171,7 @@ function show_graph_month(id, year)
 	for (var i = 1; i <= 12; i++) {
 		var k = (i < 10 ? "0"+i : i);
 		var amt = (amt_royalty_m[k] ? amt_royalty_m[k] : 0);
-		  '<span class="bar" style="width:8%; height:'+Math.floor(amt / max_amt_royalty_m * 85)+'%;" data-bar-label="'+i+'" data-bar-value="'+number_format(amt)+'"><span class="bg"></span></span>';
+		html += '<span class="bar" style="width:8%; height:'+Math.floor(amt / max_amt_royalty_m * 85)+'%;" data-bar-label="'+i+'" data-bar-value="'+number_format(amt)+'"><span class="bg"></span></span>';
 	}
 	$('#'+id).html(html);
 }

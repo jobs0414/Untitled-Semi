@@ -3,8 +3,9 @@
 <html lang="kr">
 
 <head>
-  <title>블록체인 음악 스트리밍 :: Untitled</title>
+  <title>{% block title %}{% endblock %}</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="theme-color" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="format-detection" content="telephone=no">
@@ -31,6 +32,15 @@
   <link href="/static/css/style.css" rel="stylesheet">
   <link href="/static/color/default.css" rel="stylesheet">
 
+
+    <link rel="icon" type="image/png" sizes="50x49" href="/static/image/favicon.png">
+    <link rel="shortcut icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/common-graph.css">
+    <script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/common-ko.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+
   <!-- fav and touch icons -->
   <link rel="shortcut icon" href="/static/image/favicon.ico">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/ico/apple-touch-icon-144-precomposed.png">
@@ -38,6 +48,35 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/ico/apple-touch-icon-72-precomposed.png">
   <link rel="apple-touch-icon-precomposed" href="/static/ico/apple-touch-icon-57-precomposed.png">
 
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="Clean responsive bootstrap website template">
+  <meta name="author" content="">
+  <!-- styles -->
+  <link rel="icon" type="image/png" sizes="50x49" href="/static/image/favicon.png">
+  <link href="/static/css/bootstrap.css" rel="stylesheet">
+  <link href="/static/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="/static/css/docs.css" rel="stylesheet">
+  <link href="/static/css/prettyPhoto.css" rel="stylesheet">
+  <link href="/static/css/prettify.css" rel="stylesheet">
+  <link href="/static/css/flexslider.css" rel="stylesheet">
+  <link href="/static/css/refineslide.css" rel="stylesheet">
+  <link href="/static/css/font-awesome.css" rel="stylesheet">
+  <link href="/static/css/animate.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700" rel="stylesheet">
+
+  <link href="/static/css/style.css" rel="stylesheet">
+  <link href="/static/color/default.css" rel="stylesheet">
+
+  <!-- fav and touch icons -->
+  <link rel="shortcut icon" href="/static/image/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="/static/ico/apple-touch-icon-57-precomposed.png">
   <!-- =======================================================
     Theme Name: Plato
     Theme URL: https://bootstrapmade.com/plato-responsive-bootstrap-website-template/
@@ -58,7 +97,7 @@
             <div class="span4">
               <!-- logo -->
               <div class="logo">
-                <h1><a href="/"><img src="/static/image/w_logo.png" style="height:50px;"
+                <h1><a href=""><img src="/static/image/w_logo.png" style="height:50px;"
 
                                              align="center"/></a></h1>
                 <!-- <img src="assets/img/logo.png" alt="" /> -->
@@ -72,32 +111,17 @@
                 <div class="navbar-inner">
                   <nav>
                     <ul class="nav topnav">
-                      <li class="dropdown">
-                        <a href="{% url 'base' %}">회사정보</a>
-                        <ul class="dropdown-menu">
-                          <li><a href="">회사소개</a></li>
-                          <li><a href="">리스너</a></li>
-                          <li><a href="">아티스트</a></li>
-                          <li><a href="">경매참가자</a></li>
-                        </ul>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#">음원등록</a>
-                        <ul class="dropdown-menu">
-                          <li><a href="about.html">스트리밍 등록</a></li>
-                          <li><a href="pricingtable.html">경매 등록</a></li>
-                          <li><a href="fullwidth.html">마이크로페이먼트 등록</a></li>
-                        </ul>
-                      </li>
+
                       <li class="dropdown">
                         <a href="#">스트리밍</a>
                         <ul class="dropdown-menu">
+
                           <li><a href="portfolio-2cols.html">가수 검색</a></li>
                           <li><a href="portfolio-3cols.html">곡 검색</a></li>
                         </ul>
                       </li>
                       <li class="dropdown">
-                        <a href="{% url 'auction:auction_list' %}">저작권 경매</a>
+                        <a href="{% url 'auction:search' %}">저작권 경매</a>
                         <ul class="dropdown-menu">
 
                           <li><a href="">진행중 경매</a></li>
@@ -124,9 +148,17 @@
                         </ul>
                       </li>
 
-                      <li>
-                        <a href="{% url 'login' %}">로그인</a>
-                      </li>
+                        {% if user.is_active %}
+
+                                <li>{% firstof user.get_short_name user.get_username %}</li>
+                                <li><a href="{% url 'password_change' %}">비밀번호 변경</a></li>
+                                <li><a href="{% url 'logout' %}">로그아웃</a></li>
+
+                        {% else %}
+                                <li><a href="{% url 'login' %}">로그인</a></li>
+                                <li><a href="{% url 'register' %}">회원가입</a></li>
+                        {% endif %}
+{#                        <a href="{% url 'login' %}">로그인</a>#}
                     </ul>
                   </nav>
                 </div>

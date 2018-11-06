@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<!-- saved from url=(0035)https://www.musicoin.co/auction/140 -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>Untitled:Auction</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<meta name="theme-color" content="#ffffff">
-<link rel="icon" type="image/png" sizes="50x49" href="/static/image/favicon.png">
-<link rel="shortcut icon" href="/static/image/favicon.ico">
-<link rel="stylesheet" type="text/css" href="/static/css/common.css">
-<link rel="stylesheet" type="text/css" href="/static/css/common-graph.css">
-<script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
-<script type="text/javascript" src="/static/js/common-ko.js"></script>
-<script type="text/javascript" src="/static/js/common.js"></script>
-
-<body>
-
-
+{% extends "base.html" %}
+{% block title %}Untitled:경매{% endblock %}
+{% load staticfiles %}
+{% block content %}
+<br>
+<br>
 <div class="contans"><div class="bg_gray"><div class="m_wrap wrap ptb10">
 
 <script type="text/javascript">
@@ -360,8 +347,4 @@ arr_amt_royalty_ym['graph1'] = {"2018":{"10":28,"09":30,"08":14,"07":69,"06":78,
 					</div>
 	</div>
 </div>
-
-
-<!-- 0.0044s --></body>
-
-</html>
+{% endblock content %}

@@ -1,0 +1,115 @@
+.graph-v {
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: #dee2e6;
+	height: 200px;
+	margin: 0 0 20px 0;
+	position: relative;
+	white-space: nowrap;
+	background: #f1f3f5;
+	font-size: 0;
+}
+.graph-v:before { /* Y-axis label */
+	display: block;
+	padding: .5em;
+	position: absolute;
+	right: 100%;
+	top: 48%;
+	content: attr(data-y-label);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+}
+.graph-v:after { /* X-axis label */
+	display: block;
+	left: 0;
+	margin: 1em 0 0 0;
+	padding: .75em 0;
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	content: attr(data-x-label);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+}
+.graph-v .bar {
+	display: inline-block;
+	margin: 0 0 0 1px;
+	vertical-align: bottom;
+	position: relative;
+}
+.graph-v .bar .bg {
+	display: block;
+	margin:0 auto;
+	width:15px;
+	height:100%;
+	background: #ff5a5a;
+}
+.graph-v .bar:first-child {
+	height: 100%;
+	margin: 0;
+	width: 0;
+}
+.graph-v .bar .bg:hover {
+	z-index: 100;
+	background: #ff4a4a;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .25);
+}
+.graph-v .bar:before { /* Bar label */
+	display: block;
+	left: 0;
+	padding: .15em 0;
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	content: attr(data-bar-label);
+	font-size: 12px;
+	opacity: .5;
+	text-align: center;
+}
+.graph-v .bar:after { /* Bar data value */
+	bottom: 100%;
+	display: block;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	content: attr(data-bar-value);
+	font-size: 12px;
+	opacity: .5;
+	text-align: center;
+}
+.graph-v .bar, .graph_fancy .bar:before, .graph_fancy .bar:after {
+	transition: background .25s ease-out, opacity .25s ease-out, box-shadow .25s ease-out;
+}
+.graph-v .bar:hover:before, .graph_fancy .bar:hover:after { opacity: 1; }
+
+.graph-h {
+	height:15px;
+	overflow:hidden;
+	background-color:#e5e5e5;
+	border-radius:2px;
+	text-align:center;
+}
+.graph-h .bar {
+	float:left;
+	width:0;
+	height:100%;
+	color:#ffffff;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+.graph-h .bg1 { background-color:#9199e8; }
+.graph-h .bg1:hover { background-color:#ccc; }
+.graph-h .bg2 { background-color:#7883ea; }
+.graph-h .bg2:hover { background-color:#ccc; }
+.graph-h .bg3 { background-color:#565de2; }
+.graph-h .bg3:hover { background-color:#ccc; }
+.graph-h .bg4 { background-color:#ffa6a6; }
+.graph-h .bg4:hover { background-color:#ccc; }
+.graph-h .bg5 { background-color:#ff7b7b; }
+.graph-h .bg5:hover { background-color:#ccc; }
+.graph-h .bg6 { background-color:#ff5a5a; }
+.graph-h .bg6:hover { background-color:#ccc; }
+

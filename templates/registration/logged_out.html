@@ -1,0 +1,43 @@
+{#{% extends "base.html" %}#}
+{#{% block title %} 로그아웃 페이지 {% endblock %} #}
+{##}
+{#{% block content %}#}
+<html>
+<head>
+    <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>로그아웃</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="50x49" href="/static/image/favicon.png">
+    <link rel="shortcut icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/common-graph.css">
+    <script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/common-ko.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div class="con_tit">
+            <h1>로그아웃 완료</h1>
+            <p>이용해 주셔서 감사합니다.</p>
+
+            <div class="one_btn pb10">
+                <div class="one_red">
+                    <h5><a href="{% url 'login' %}">로그인</a></h5>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
+
+{#{% endblock content%}#}
+{##}

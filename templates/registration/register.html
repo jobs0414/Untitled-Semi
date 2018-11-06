@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>회원가입 페이지</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/form.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="50x49" href="/static/image/favicon.png">
+    <link rel="shortcut icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/common-graph.css">
+    <script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/common-ko.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+
+</head>
+<body>
+<div id="content">
+    <div class="con_tit">
+        <h3>회원 가입</h3>
+    </div>
+
+    <form action="." method="post" class="sm_wrap">
+        {% csrf_token %}
+        {{ form.errors }}
+        <p>회원 정보를 입력해 주세요.</p>
+
+        <fieldset class="aligned">
+            <ul>
+                <li>{{ form.username.label_tag }}</li>
+                <li>{{ form.username }}</li>
+            </ul>
+
+            <ul>
+                <li>{{ form.password1.label_tag }}</li>
+                <li>{{ form.password1 }}</li>
+            </ul>
+
+            <ul>
+                <li>{{ form.password2.label_tag }}</li>
+                <li>{{ form.password2 }}</li>
+            </ul>
+        </fieldset>
+        <div class="one_btn pb10">
+            <div class="one_red"><button type="submit">가입하기</button></div>
+        </div>
+    </form>
+</div>
+</body>
+
+</html>

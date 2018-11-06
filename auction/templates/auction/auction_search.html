@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>경매 검색</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" sizes="50x49" href="/static/image/favicon.png">
+    <link rel="shortcut icon" href="/static/image/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/common-graph.css">
+    <script type="text/javascript" src="/static/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/common-ko.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+
+</head>
+<body>
+    <div id="content">
+        <div class="con_tit">
+            <h3>경매 검색</h3>
+            <p>
+            "구매를 원하는 음원을 검색해보세요."
+            </p>
+        </div>
+        <div class="search_wrap">
+            <form action="." method="post">
+            {% csrf_token %}
+            {{ form.as_table }}
+{#            <input type="submit" value="검색"/>#}
+            </form>
+        </div>
+
+        <br/><br/>
+
+        {% if object_list %}
+            <ul class="user_buy">
+        {% for auction in object_list %}
+{#            <h2>음원명 : <a href="{{ auction.get_absolute_url }}">{{ auction.title }}</a></h2>#}
+{#            <p>{{ auction.artist }}</p>#}
+{#            <p></p>#}
+{#            <img src="{{ auction.cover_path }}"/>#}
+
+              <li>
+                    <a href="{{ auction.pk }}">
+                        <div class="img_box">
+                            <div class="box"><img src="{{ auction.cover_path }}" /></div>
+                        </div>
+
+                        <div class="txt_box">
+                            <div class="txt">
+                                <dl>
+                                    <dt>곡명</dt>
+                                    <dd>{{ auction.title }}</dd>
+                                </dl>
+                                <dl>
+                                    <dt>가수</dt>
+                                    <dd>{{ auction.artist }}</dd>
+                                </dl>
+                                <dl>
+                                    <dt>현재 최저가 (조각당)</dt>
+                                    <dd>{{ auction.base_price }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </a>
+              </li>
+        {% endfor %}
+        </ul>
+        {% elif search_term %}
+        <b><i>Search Word({{ search_term }}) 없음. </i></b>
+        {% endif %}
+
+    </div>
+</body>
+</html>
